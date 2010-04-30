@@ -1,0 +1,7 @@
+Boxcar FARM Client Examples
+
+The Boxcar FARM API provides streamed access to notifications sent to you. It is meant to be used via WebSockets.  Whether that implementation is in the browser or through a third party library is up to you. Please note that the FARM API is in beta and may change at any time. Several key features are missing, including SSL encryption. If you find that something else is missing, don't hesitate to open a discussion in our developers forum.
+
+Read more about Boxcar FARM at http://boxcar.io/help/api/farm.
+
+This repository contains example implementations for your reference.
