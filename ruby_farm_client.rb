@@ -16,7 +16,7 @@ SETTINGS = {
 }
 
 EventMachine.run {
-  http = EventMachine::HttpRequest.new("ws://localhost:8080/websocket").get :timeout => 0
+  http = EventMachine::HttpRequest.new("ws://farm.boxcar.io:8080/websocket").get :timeout => 0
  
   http.errback {
     puts "There was a problem maintaining the connection."
