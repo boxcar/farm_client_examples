@@ -9,10 +9,11 @@ require 'rubygems'
 require 'eventmachine'
 require 'em-http'
 require 'em-websocket'
+require 'digest/md5'
 
 SETTINGS = { 
-  :email    => 'example@example.com',
-  :password => 'example'
+  :email    => 'EXAMPLE',
+  :password => 'EXAMPLE'
 }
 
 EventMachine.run {
@@ -24,7 +25,10 @@ EventMachine.run {
 
   http.callback {
     puts "Connected!  Send yourself a notification.  Find example code at http://github.com/boxcar"
-    http.send "{\"action\":\"login\",\"email\":\"#{SETTINGS[:email]}\",\"password\":\"#{SETTINGS[:password]}\"}"
+    http.send "{\"app_name\":\"FARM Example\",
+                \"username\":\"#{SETTINGS[:email]}\",
+                \"password\":\"#{Digest::MD5.hexdigest(SETTINGS[:password])}\",
+                \"app_ver\":\"1.0\"}"
   }
 
   http.stream { |msg|
